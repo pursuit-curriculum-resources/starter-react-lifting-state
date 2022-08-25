@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { v1 as generateUniqueID } from "uuid";
+
 export default function NewDogForm() {
   const [checked, setChecked] = useState(false);
   const [selectOption, setSelectOption] = useState("");
@@ -26,7 +27,7 @@ export default function NewDogForm() {
       favFlavor: selectOption,
       contact: newDog.contact,
     };
-    // setDogs([createDog, ...dogs]);
+    // handleAddDog(createDog);
   }
 
   function handleCheckboxChange() {

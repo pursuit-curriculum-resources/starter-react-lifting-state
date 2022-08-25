@@ -7,6 +7,10 @@ function App() {
   const [dogs, setDogs] = useState(dogsData);
   const [showNewDogForm, setNewDogForm] = useState(false);
 
+  function handleAddDog(dog) {
+    setDogs([dog, ...dogs]);
+  }
+
   function removeDog(dogID) {
     const filteredDogArray = dogs.filter((dog) => dog.id !== dogID);
     setDogs(filteredDogArray);
@@ -37,7 +41,7 @@ function App() {
         <div>
           <ul>
             {dogs.map((dog) => {
-              return <DogListItem dog={dog} />;
+              return <DogListItem dog={dog} key={dog.id} />;
             })}
           </ul>
         </div>
