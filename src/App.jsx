@@ -36,12 +36,19 @@ function App() {
           <button onClick={toggleNewDogForm}>
             {showNewDogForm ? "hide form" : "Add a new dog"}
           </button>
-          {showNewDogForm ? <NewDogForm /> : null}
+          {showNewDogForm ? <NewDogForm handleAddDog={handleAddDog} /> : null}
         </div>
         <div>
           <ul>
             {dogs.map((dog) => {
-              return <DogListItem dog={dog} key={dog.id} />;
+              return (
+                <DogListItem
+                  key={dog.id}
+                  dog={dog}
+                  updateDogAttendance={updateDogAttendance}
+                  removeDog={removeDog}
+                />
+              );
             })}
           </ul>
         </div>
